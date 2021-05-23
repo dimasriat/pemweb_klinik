@@ -17,6 +17,21 @@
             <li>
                 <a href="/perawat">Perawat</a>
             </li>
+            <li>
+                <a href="/kunjungan">Kunjungan</a>
+            </li>
+            <li>
+                <a href="/kunjungan_poli">Kunjungan Poli</a>
+            </li>
+            <li>
+                <a href="/tindakan">Tindakan</a>
+            </li>
+            <li>
+                <a href="/bhp">BHP</a>
+            </li>
+            <li>
+                <a href="/obat">Obat</a>
+            </li>
         </ul>
     </div>
 </body>
