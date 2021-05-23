@@ -16,13 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $data = DB::table('perawat')->get();
-    return view('welcome', ['data' => $data]);
+    return view('index');
 });
-Route::post('/', function (Request $req) {
-    DB::table('perawat')->insert([
-        'nama' => $req->input('nama'),
-        'no_telp' => $req->input('no_telp'),
-    ]);
-    return redirect('/');
+
+Route::get('/perawat', function () {
+    $data = DB::table('perawat')->get();
+    return view('perawat', ['data' => $data]);
+});
+Route::post('/perawat', function (Request $req) {
+    DB::table('perawat')->insert($req->except('_token'));
+    return redirect('/perawat');
 });

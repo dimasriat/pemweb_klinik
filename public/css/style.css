@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: skyblue;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr,
+td {
+    border: 1px solid black;
+    padding: 8px;
+}
+.wrapper {
+    max-width: 50%;
+    background-color: white;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 1rem;
+}
+form input {
+    display: block;
+    margin: 0.5rem 0;
+}
