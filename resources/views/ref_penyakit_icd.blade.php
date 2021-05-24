@@ -13,31 +13,25 @@
     <div class="wrapper">
         <h1>App Klinik</h1>
         <a href="/">Back to Home</a>
-        <h2>Tambah Data Obat</h2>
-        <form action="/obat" method="POST">
+        <h2>Tambah Data Perawat</h2>
+        <form action="/perawat" method="POST">
             @csrf
-            <input type="text" placeholder="id_periksa_poli" name="id_periksa_poli">
-            <input type="text" placeholder="id_obat" name="id_obat">
-            <input type="text" placeholder="harga" name="harga">
-            <input type="text" placeholder="jml" name="jml">
+            <input type="text" placeholder="kode" name="kode">
+            <input type="text" placeholder="nama" name="nama">
             <input type="submit" value="Insert">
         </form>
-        <h2>Tampilkan Data Obat</h2>
+        <h2>Tampilkan Data Perawat</h2>
         <table>
             <tr>
                 <td>id</td>
-                <td>id_periksa_poli</td>
-                <td>id_obat</td>
-                <td>harga</td>
-                <td>jml</td>
+                <td>kode</td>
+                <td>nama</td>
             </tr>
             @foreach($data as $row)
             <tr>
                 <td>{{ $row->id }}</td>
-                <td>{{ $row->id_periksa_poli }}</td>
-                <td>{{ $row->id_obat }}</td>
-                <td>{{ $row->harga }}</td>
-                <td>{{ $row->jml }}</td>
+                <td>{{ $row->kode }}</td>
+                <td>{{ $row->nama }}</td>
             </tr>
             @endforeach
         </table>
