@@ -1,53 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Kunjungan Poli') }}</div>
 
-<body>
-    <div class="wrapper">
-        <h1>App Klinik</h1>
-        <a href="/">Back to Home</a>
-        <h2>Tambah Data Kunjungan Poli</h2>
-        <form action="/kunjungan_poli" method="POST">
-            @csrf
-            <input type="text" placeholder="id_periksa" name="id_periksa">
-            <input type="text" placeholder="id_poli_bagian" name="id_poli_bagian">
-            <input type="text" placeholder="id_dokter_pemeriksa" name="id_dokter_pemeriksa">
-            <input type="text" placeholder="id_perawat_pemeriksa" name="id_perawat_pemeriksa">
-            <input type="text" placeholder="id_penyakit" name="id_penyakit">
-            <input type="text" placeholder="biaya_pendaftaran" name="biaya_pendaftaran">
-            <input type="submit" value="Insert">
-        </form>
-        <h2>Tampilkan Data Kunjungan Poli</h2>
-        <table>
-            <tr>
-                <td>id</td>
-                <td>id_periksa</td>
-                <td>id_poli_bagian</td>
-                <td>id_dokter_pemeriksa</td>
-                <td>id_perawat_pemeriksa</td>
-                <td>id_penyakit</td>
-                <td>biaya_pendaftaran</td>
-            </tr>
-            @foreach($data as $row)
-            <tr>
-                <td>{{ $row->id }}</td>
-                <td>{{ $row->id_periksa }}</td>
-                <td>{{ $row->id_poli_bagian }}</td>
-                <td>{{ $row->id_dokter_pemeriksa }}</td>
-                <td>{{ $row->id_perawat_pemeriksa }}</td>
-                <td>{{ $row->id_penyakit }}</td>
-                <td>{{ $row->biaya_pendaftaran }}</td>
-            </tr>
-            @endforeach
-        </table>
+                    <div class="card-body">
+                    <form action="/kunjungan_poli" method="POST">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="id_periksa" class="col-md-4 col-form-label text-md-right">{{ __('ID Periksa') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="id_periksa">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="id_poli_bagian" class="col-md-4 col-form-label text-md-right">{{ __('ID Poli Bagian') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="id_poli_bagian">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="id_dokter_pemeriksa" class="col-md-4 col-form-label text-md-right">{{ __('ID Dokter Pemeriksa') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="id_dokter_pemeriksa">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="id_perawat_pemeriksa" class="col-md-4 col-form-label text-md-right">{{ __('ID Perawat Pemeriksa') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="id_perawat_pemeriksa">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="id_penyakit" class="col-md-4 col-form-label text-md-right">{{ __('ID Penyakit') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="id_penyakit">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="biaya_pendaftaran" class="col-md-4 col-form-label text-md-right">{{ __('Biaya Pendaftaran') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="biaya_pendaftaran">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Submit') }}
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="card">
+                <div class="card-header">{{ __('TAMPILAN DATA') }}</div>
+
+                    <div class="card-body">
+                    <table border = "1">
+                        <tr>
+                            <td>id</td>
+                            <td>id_periksa</td>
+                            <td>id_poli_bagian</td>
+                            <td>id_dokter_pemeriksa</td>
+                            <td>id_perawat_pemeriksa</td>
+                            <td>id_penyakit</td>
+                            <td>biaya_pendaftaran</td>
+                        </tr>
+                        @foreach($data as $row)
+                        <tr>
+                            <td>{{ $row->id }}</td>
+                            <td>{{ $row->id_periksa }}</td>
+                            <td>{{ $row->id_poli_bagian }}</td>
+                            <td>{{ $row->id_dokter_pemeriksa }}</td>
+                            <td>{{ $row->id_perawat_pemeriksa }}</td>
+                            <td>{{ $row->id_penyakit }}</td>
+                            <td>{{ $row->biaya_pendaftaran }}</td>
+                        </tr>
+                        @endforeach
+
+                     </table>
+
+                </div>
+            </div>
+
+
+        </div>
     </div>
-</body>
-
-</html>
+</div>
+@endsection

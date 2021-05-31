@@ -1,44 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('BHP') }}</div>
 
-<body>
-    <div class="wrapper">
-        <h1>App Klinik</h1>
-        <a href="/">Back to Home</a>
-        <h2>Tambah Data BHP</h2>
-        <form action="/bhp" method="POST">
-            @csrf
-            <input type="text" placeholder="id_bhp" name="id_bhp">
-            <input type="text" placeholder="harga" name="harga">
-            <input type="text" placeholder="jml" name="jml">
-            <input type="submit" value="Insert">
-        </form>
-        <h2>Tampilkan Data BHP</h2>
-        <table>
-            <tr>
-                <td>id</td>
-                <td>id_bhp</td>
-                <td>harga</td>
-                <td>jml</td>
-            </tr>
-            @foreach($data as $row)
-            <tr>
-                <td>{{ $row->id }}</td>
-                <td>{{ $row->id_bhp }}</td>
-                <td>{{ $row->harga }}</td>
-                <td>{{ $row->jml }}</td>
-            </tr>
-            @endforeach
-        </table>
+                    <div class="card-body">
+                    <form action="/bhp" method="POST">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="id_bhp" class="col-md-4 col-form-label text-md-right">{{ __('ID BHP') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="id_bhp">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="harga" class="col-md-4 col-form-label text-md-right">{{ __('Harga') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="harga">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="jml" class="col-md-4 col-form-label text-md-right">{{ __('Jumlah') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="jml">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Submit') }}
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="card">
+                <div class="card-header">{{ __('TAMPILAN DATA') }}</div>
+
+                    <div class="card-body">
+                    <table border = "1">
+                        <tr>
+                            <td>id</td>
+                            <td>id_bhp</td>
+                            <td>harga</td>
+                            <td>jml</td>
+                        </tr>
+                        @foreach($data as $row)
+                        <tr>
+                            <td>{{ $row->id }}</td>
+                            <td>{{ $row->id_bhp }}</td>
+                            <td>{{ $row->harga }}</td>
+                            <td>{{ $row->jml }}</td>
+                        </tr>
+                        @endforeach
+                     </table>
+
+                </div>
+            </div>
+
+
+        </div>
     </div>
-</body>
-
-</html>
+</div>
+@endsection
